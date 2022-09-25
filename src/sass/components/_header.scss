@@ -1,0 +1,45 @@
+@use "../abstracts/mixins" as mixins;
+
+.hero {
+  // example from https://open-props.style
+  line-height: var(--font-lineheight-1);
+  font-size: var(--font-size-fluid-2);
+  font-weight: var(--font-weight-9);
+  font-family: var(--font-sans);
+
+  // https: //css-tricks.com/positioning-overlay-content-with-css-grid/
+
+
+  @include mixins.simple-grid(1rem);
+  grid-template: "container";
+
+  > * {
+    grid-area: container;
+    margin-inline: auto;
+  }
+
+  &__title {
+    font-size: var(--font-size-fluid-3);
+    color: var(--gray-2);
+    text-align: center;
+    z-index: 1;
+    padding-top: 10%;
+    height: max-content;
+  }
+
+}
+
+.hero-figure {
+  @include mixins.simple-grid(1rem);
+
+  > * {
+    display: block;
+    margin-inline: auto;
+  }
+
+
+
+  &__img {
+    border-radius: var(--radius-3);
+  }
+}

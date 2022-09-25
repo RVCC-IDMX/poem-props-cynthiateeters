@@ -1,0 +1,44 @@
+// _article.scss
+@use "../abstracts/mixins" as mixins;
+
+.poem {
+  // display: grid;
+  // gap: var(--size-fluid-3);
+  @include mixins.simple-grid(var(--size-fluid-3));
+
+  margin-inline: auto;
+  font-size: var(--font-size-fluid-2);
+
+  &__subtitle {
+    font-variant: small-caps;
+    font-size: var(--font-size-fluid-2);
+    letter-spacing: var(--font-letterspacing-2);
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    > * {
+      display: block;
+      width: max-content;
+    }
+  }
+
+  &__stanza {
+    font-size: calc(var(--font-size-fluid-2) * 0.75);
+  }
+
+  &__rule {
+    // https: //utopia.fyi/type/calculator/?c=320,1,1.2,1140,3,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
+    --step-5: clamp(0.16rem, calc(-0.01rem + 0.81vw), 0.57rem);
+
+    margin-block: var(--step-5);
+    border: 0;
+    border: var(--step-5) solid var(--gray-3);
+    border-radius: 50%;
+    background-color: var(--gray-3);
+    width: 96%;
+    margin-inline: auto;
+  }
+}
